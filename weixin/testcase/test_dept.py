@@ -1,3 +1,4 @@
+import allure
 import pytest
 
 from weixin.api.base_api import BaseApi
@@ -13,6 +14,7 @@ class TestDept(BaseApi):
 
 
         # 集成测试部门相关
+    @allure.feature('部门管理')
     @pytest.mark.parametrize("name,name_en,parentid,id,update_name" ,Data().create_data_dept())
     def test_all_department(self,name,name_en,parentid,id,update_name,token):
         try:

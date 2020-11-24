@@ -1,3 +1,4 @@
+import allure
 import pytest
 
 from weixin.api.tag import TagApi
@@ -10,6 +11,7 @@ class TestTag(TagApi):
         self.tag = TagApi()
 
     #集成测试标签相关
+    @allure.feature('标签管理')
     @pytest.mark.parametrize("tagname,tagid,uptagname",Data().create_data_tag())
     def test_all_tag(self,tagname,tagid,uptagname,token):
         try:
